@@ -1,5 +1,6 @@
-export default function Item() {
+export default function Item({id, title, image, content}) {
   const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
+  console.log('Get image url : ', image)
   return (
     <>
       {/* <div className="w-full max-w-full flex">
@@ -28,18 +29,18 @@ export default function Item() {
         </a>
    </div> */}
    <div className="flow-root">
-        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-            <li className="py-1">
+        <div role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="py-1">
                 <div className="flex items-center">
                     <div className="flex-shrink-0">
-                        <img className="w-20 h-20 rounded-sm " src={backGround} alt="Neil image" />
+                        <img className="w-20 h-20 rounded-sm " src={image} alt="Neil image" />
                     </div>
                     <div className="flex-1 min-w-0 ms-4">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            중국집 쿠폰 팔아요
+                            {title}
                         </p>
                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            양자강
+                            {content}
                         </p>
                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                             10장
@@ -49,63 +50,9 @@ export default function Item() {
                       <i className="fa-solid fa-bars"></i>
                     </div>
                 </div>
-            </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center ">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src={backGround}  alt="Bonnie image" />
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Bonnie Green
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $3467
-                    </div>
-                </div>
-            </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src={backGround}  alt="Michael image" />
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Michael Gough
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $67
-                    </div>
-                </div>
-            </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center ">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src={backGround} alt="Lana image" />
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Lana Byrd
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $367
-                    </div>
-                </div>
-            </li>
+            </div>
             
-        </ul>
+        </div>
    </div>
 </div>
     </>
