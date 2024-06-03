@@ -2,10 +2,10 @@ export default function Item() {
   const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
   return (
     <>
-      <div className="w-full max-w-full flex">
-      <div className="h-48 h-auto w-48 flex-none bg-cover rounded-t rounded-t-none rounded-l text-center overflow-hidden" style={{backgroundImage: `url(${backGround})`}} title="Woman holding a mug">
+      {/* <div className="w-full max-w-full flex">
+      <div className="h-auto w-48 flex-none bg-cover rounded-t rounded-l text-center overflow-hidden" style={{backgroundImage: `url(${backGround})`}} title="Woman holding a mug">
       </div>
-      <div className="border-r border-b border-l border-gray-400 border-l-0 border-t border-gray-400 bg-white rounded-b rounded-b-none rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div className="border-r border-b border-l-0 border-t border-gray-400 bg-white rounded-b-none rounded-r p-4 flex flex-col justify-between leading-normal">
         <div className="mb-8">
           
           <div className="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
@@ -18,7 +18,96 @@ export default function Item() {
           </p>
         </div>
       </div>
-    </div>
+    </div> */}
+
+<div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    {/* <div className="flex items-center justify-between mb-4">
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
+        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+            View all
+        </a>
+   </div> */}
+   <div className="flow-root">
+        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+            <li className="py-1">
+                <div className="flex items-center">
+                    <div className="flex-shrink-0">
+                        <img className="w-20 h-20 rounded-sm " src={backGround} alt="Neil image" />
+                    </div>
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            중국집 쿠폰 팔아요
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            양자강
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            10장
+                        </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                      <i className="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </li>
+            <li className="py-3 sm:py-4">
+                <div className="flex items-center ">
+                    <div className="flex-shrink-0">
+                        <img className="w-8 h-8 rounded-full" src={backGround}  alt="Bonnie image" />
+                    </div>
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Bonnie Green
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            email@windster.com
+                        </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $3467
+                    </div>
+                </div>
+            </li>
+            <li className="py-3 sm:py-4">
+                <div className="flex items-center">
+                    <div className="flex-shrink-0">
+                        <img className="w-8 h-8 rounded-full" src={backGround}  alt="Michael image" />
+                    </div>
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Michael Gough
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            email@windster.com
+                        </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $67
+                    </div>
+                </div>
+            </li>
+            <li className="py-3 sm:py-4">
+                <div className="flex items-center ">
+                    <div className="flex-shrink-0">
+                        <img className="w-8 h-8 rounded-full" src={backGround} alt="Lana image" />
+                    </div>
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Lana Byrd
+                        </p>
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            email@windster.com
+                        </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $367
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+   </div>
+</div>
     </>
   )
 }
