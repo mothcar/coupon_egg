@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import TopBar from "./components/TobBar.jsx"
 import NavBar from "./components/NavBar";
 import AddButton from "./components/AddButton.jsx"
 import Home from "./pages/Home";
@@ -12,7 +11,6 @@ function App() {
     <>
       <div className="container">
         <Router>
-          <TopBar />
           <NavBar />
           <AddButton />
           <Routes>
