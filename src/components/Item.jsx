@@ -1,3 +1,5 @@
+import { BsList } from "react-icons/bs";
+
 export default function Item({id, title, image, content}) {
   const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
   console.log('Get image url : ', image)
@@ -47,7 +49,7 @@ export default function Item({id, title, image, content}) {
                         </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      <i className="fa-solid fa-bars"></i>
+                      <BsList></BsList>
                     </div>
                 </div>
             </div>
