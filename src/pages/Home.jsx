@@ -3,7 +3,7 @@ import Card from "../components/Item.jsx"
 
 
 export default function Home() {
-  console.log('Get data : ', lists)
+  // console.log('Get data : ', lists)
   return (
     <div>
       
