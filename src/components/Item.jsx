@@ -2,7 +2,7 @@ import { BsList } from "react-icons/bs";
 
 export default function Item({id, title, image, content}) {
   const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
-  console.log('Get image url : ', image)
+  // console.log('Get image url : ', image)
   return (
     <>
       {/* <div className="w-full max-w-full flex">
@@ -35,7 +35,7 @@ export default function Item({id, title, image, content}) {
             <div className="py-1">
                 <div className="flex items-center">
                     <div className="flex-shrink-0">
-                        <img className="w-20 h-20 rounded-sm " src={image} alt="Neil image" />
+                        <img className="w-20 h-20 md:w-40 md:h-40 rounded-sm " src={image} alt="Neil image" />
                     </div>
                     <div className="flex-1 min-w-0 ms-4">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
