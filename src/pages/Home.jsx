@@ -10,7 +10,8 @@ export default function Home() {
       <div>
         {
           lists.map(list=>(
-            <Card className="" key={list.id} id={lists.id} title={list.title} image={list.image} content={list.content} />
+            // <Card className="" key={list.id} id={lists.id} title={list.title} image={list.image} content={list.content} />
+            <Card className="" key={list.id} card={list} />
           ))
         }
       </div>
