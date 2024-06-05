@@ -7,7 +7,7 @@ export default function NavBar() {
     <div id="navbar">
       <header>
         <nav>
-          <h3>신대방2동</h3>
+          <h3>황동현2동</h3>
 
           <ul>
             <li><Link to="/" replace><span>Home</span> <Icon name="home" /></Link></li>
