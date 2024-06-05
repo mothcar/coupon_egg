@@ -77,7 +77,7 @@ function Login() {
 
               <div>
                 <p>
-                  Don't have an account? <a href="#">Register</a>
+                  Don&apos;t have an account? <a href="#">Register</a>
                 </p>
               </div>
               <button type="submit">Login</button>

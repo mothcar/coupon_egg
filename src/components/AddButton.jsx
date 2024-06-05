@@ -6,7 +6,7 @@ export default function AddButton() {
   const navigate = useNavigate();
 
   function clickHandler() {
-    navigate('/addPost')
+    navigate('/addPost', {replace: true})
     console.log("Clicked.........")
   }
   return (
