@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function CommonBar() {
   const navigate = useNavigate();
   const routeChange = () => {
-    let path = `/`;
+    let path = `../`;
     navigate(path, { replace: true });
   };
 
