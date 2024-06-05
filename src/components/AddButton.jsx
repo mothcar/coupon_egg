@@ -1,8 +1,12 @@
-import { BiAdjust } from "react-icons/bi";
+// import { BiAdjust } from "react-icons/bi";
 import "./NavBar.scss";
+import { useNavigate } from 'react-router-dom'
 
 export default function AddButton() {
+  const navigate = useNavigate();
+
   function clickHandler() {
+    navigate('/addPost')
     console.log("Clicked.........")
   }
   return (

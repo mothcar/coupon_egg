@@ -1,0 +1,12 @@
+.common-nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  justify-content: space-between;
+  border-bottom: solid rgb(189, 189, 189) 1px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+}
