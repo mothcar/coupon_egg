@@ -1,5 +1,5 @@
 import {lists} from "../data/fake.js"
-import Card from "../components/Item.jsx"
+import Item from "../components/Item.jsx"
 
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         {
           lists.map(list=>(
             // <Card className="" key={list.id} id={lists.id} title={list.title} image={list.image} content={list.content} />
-            <Card className="" key={list.id} card={list} />
+            <Item className="" key={list.id} card={list} />
           ))
         }
       </div>
