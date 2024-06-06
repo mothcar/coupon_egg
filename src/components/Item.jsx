@@ -11,7 +11,7 @@ export default function Item(props) {
   const { setTitle } = useTitleStore()
 
   function cardClickHandler() {
-    navigate("../goDetail", {replace: true, state: card})
+    navigate("/goDetail", {state: card})
     setTitle("디테일")
   }
 

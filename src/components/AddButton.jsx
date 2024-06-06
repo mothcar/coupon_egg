@@ -9,7 +9,7 @@ export default function AddButton() {
 
   function clickHandler() {
     setTitle("등록");
-    navigate("../addPost", { replace: true });
+    navigate("/addPost");
   }
   return (
     <div id="addbutton">
