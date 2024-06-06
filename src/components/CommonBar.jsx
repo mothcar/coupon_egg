@@ -2,8 +2,11 @@
 import "./CommonBar.css";
 import { BsChevronLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { useTitleStore } from "../store/titleStore.js";
 
 export default function CommonBar() {
+  const { common_title } = useTitleStore();
+  const title = common_title;
   const navigate = useNavigate();
   const routeChange = () => {
     let path = `../`;
@@ -15,7 +18,7 @@ export default function CommonBar() {
       <button onClick={routeChange}>
         <div className="flex items-center gap-5">
           <BsChevronLeft />
-          <span> 뒤로가기</span>
+          <span> {title} </span>
         </div>
       </button>
     </div>
