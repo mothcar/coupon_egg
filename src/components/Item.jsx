@@ -1,13 +1,23 @@
 import { BsList } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { useTitleStore } from "../store/titleStore.js"
 
 export default function Item(props) {
   // const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
   const data = props    // Object 
   const card = data.card // Object in Object 
 
+  const navigate = useNavigate()
+  const { setTitle } = useTitleStore()
+
+  function cardClickHandler() {
+    navigate("../goDetail", {replace: true, state: card})
+    setTitle("디테일")
+  }
+
   return (
     <>
-      <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div onClick={cardClickHandler} className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flow-root">
           <div
             role="list"

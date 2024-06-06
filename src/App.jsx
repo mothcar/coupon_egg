@@ -9,6 +9,7 @@ import Login from "./pages/Login.jsx";
 import MainLayout from "./layout/MainLayout.jsx";
 import CommonLayout from "./layout/CommonLayout.jsx";
 import AddPost from "./pages/AddPost.jsx";
+import Detail from "./pages/Detail"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </Route>
             <Route element={<CommonLayout />}>
               <Route path="/addPost" element={<AddPost />} exact></Route>
+              <Route path="/goDetail" element={<Detail />} exact></Route>
             </Route>
           </Routes>
         </Router>
