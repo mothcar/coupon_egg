@@ -1,14 +1,14 @@
-import { useRef, useState, useEffect, useContext } from "react";
+import { useRef, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthProvider";
+// import AuthContext from "../context/AuthProvider";
 import axios from "../api/axios";
 
 function Login() {
-  const { setAuth } = useContext(AuthContext);
-  const LOGIN_URI = "/login";
+  // const { setAuth } = useContext(AuthContext);
+  // const LOGIN_URI = "/login";
   const navigate = useNavigate();
   const userRef = useRef();
-  const errRef = useRef();
+  // const errRef = useRef();
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
