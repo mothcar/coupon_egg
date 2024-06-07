@@ -72,7 +72,7 @@ export default function AddPost() {
 
   return (
     <div className="common">
-      <div>
+      <div className="mb-5">
         {/* <label className="block">
           <span className="sr-only">Choose profile photo</span>
           <input type="file" onChange={(e) => setFile(e.target.files[0])} className="block w-full text-sm text-slate-500
@@ -86,10 +86,10 @@ export default function AddPost() {
 
         <div
           id="image-preview"
-          className="max-w-sm h-full p-6 mb-4 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center cursor-pointer"
+          className="max-w-sm h-full p-2 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center cursor-pointer"
         >
           <label className="cursor-pointer flex flex-col justify-center items-center">
-            <BsCameraFill style={{ fontSize: 25 }} />
+            <BsCameraFill className="pt-3" style={{ fontSize: 40 }} />
             <input
               id="upload"
               type="file"
@@ -100,11 +100,11 @@ export default function AddPost() {
               쿠폰 업로드
             </h5>
           </label>
-          <span id="filename" className="text-gray-500 bg-gray-200 z-50"></span>
         </div>
+        <div id="filename" className="text-right text-gray-500 z-50"></div>
       </div>
 
-      <div>
+      <div className="mb-10">
         <label className="block text-base mt-4 mb-2">제목</label>
         <input
           type="text"
@@ -114,7 +114,7 @@ export default function AddPost() {
         />
       </div>
 
-      <div>
+      <div className="mb-10">
         <label className="block text-base mt-4 mb-2">판매방식</label>
         <div className="flex mb-2">
           <div className="flex items-center me-4">
@@ -166,7 +166,7 @@ export default function AddPost() {
         </div>
       </div>
 
-      <div>
+      <div className="mb-10">
         <label className="block text-base mt-4 mb-2">설명</label>
         <textarea
           type="text"
