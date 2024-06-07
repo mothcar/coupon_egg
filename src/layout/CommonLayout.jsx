@@ -5,9 +5,6 @@ export default function CommonLayout() {
   return (
     <>
       <CommonBar />
-      {/* <div>aldkfja;lkdfja;lkjd</div> */}
-      <div>*</div>
-      <div>*</div>
       <Outlet />
     </>
   )
