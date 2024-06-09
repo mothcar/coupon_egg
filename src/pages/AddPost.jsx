@@ -199,7 +199,7 @@ export default function AddPost() {
         <button
           type="button"
           onClick={upload}
-          className=" w-96 bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 rounded mb-3"
+          className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 rounded mb-3"
         >
           등록
         </button>
