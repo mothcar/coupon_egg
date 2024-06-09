@@ -23,7 +23,7 @@ function App() {
       // Update local state to trigger component rerender
       setShowSplashscreen(false);
       // Update localStorage for next time app is mounted
-      localStorage.setItem("showedSplashscreen", JSON.stringify(true));
+      // localStorage.setItem("showedSplashscreen", JSON.stringify(true));
     }, 4000);
   }, []);
 
