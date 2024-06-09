@@ -197,15 +197,15 @@ export default function AddPost() {
         />
       </div>
 
-      {/* <div className="fixed inset-x-0 bottom-0 text-center">
+      <div className="fixed inset-x-0 bottom-0 text-center">
         <button
           type="button"
           onClick={upload}
-          className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 rounded mb-3"
+          className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-5 rounded"
         >
           등록
         </button>
-      </div> */}
+      </div>
     </div>
   );
 }
