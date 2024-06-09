@@ -70,12 +70,14 @@ export default function AddPost() {
     alert("등록완료");
   };
 
-  const [hide, setHide] = useState("")
+  const [hide, setHide] = useState(false)
 
   function changedRadio(e) {
     // setHide
-    if(e.target.value == "change") setHide("hidden")
-    else setHide("grid grid-cols-2 items-center")
+    // if(e.target.value == "change") setHide("hidden")
+    // else setHide("grid grid-cols-2 items-center")
+    if(e.target.value == "change") setHide(true)
+    else setHide(false)
   }
 
   return (
@@ -149,7 +151,7 @@ export default function AddPost() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 items-center">
+        <div className="flex">
           <div className="grid grid-cols-2 items-center">
             <input
               type="number"
@@ -160,7 +162,7 @@ export default function AddPost() {
             <span className="ml-3">장</span>
           </div>
 
-          <div className={hide}>
+          <div className={hide? "hidden":"grid grid-cols-2 items-center"}>
             <input
               type="number"
               id="title"
