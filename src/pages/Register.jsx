@@ -14,9 +14,9 @@ export default function Register() {
     navigate("../", { replace: true });
   }
 
-  function endService() {
-    navigate(-2)
-  }
+  // function endService() {
+  //   navigate(-2)
+  // }
 
   return (
     <>
@@ -34,12 +34,12 @@ export default function Register() {
         >
           Log out
         </button>
-        <button
+        {/* <button
           onClick={endService}
           className="bg-blue-500 px-5 py-3 rounded-sm"
         >
           브라우저 닫기
-        </button>
+        </button> */}
       </div>
     </>
   );
