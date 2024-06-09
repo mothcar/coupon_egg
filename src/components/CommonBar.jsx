@@ -9,7 +9,7 @@ export default function CommonBar() {
   const title = common_title;
   const navigate = useNavigate();
   const routeChange = () => {
-    let path = `../`;
+    let path = `../home`;
     navigate(path, { replace: true });
   };
 

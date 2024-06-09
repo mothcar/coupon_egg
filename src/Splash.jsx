@@ -14,7 +14,7 @@ export default function Splash() {
   // );
 
   function goRegisterOrHome() {
-    if(isLogin) navigate("../home", { replace: true })
+    if(isLogin) navigate("/home")
       else navigate("../register", { replace: true })
   }
 
