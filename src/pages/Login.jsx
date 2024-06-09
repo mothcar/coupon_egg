@@ -43,6 +43,11 @@ function Login() {
       });
   };
 
+  function logoutHandler() {
+    localStorage.setItem("isLogin", JSON.stringify(false)); 
+    navigate("../", { replace: true })
+  }
+
   return (
     <>
       <div className="pt-5 pb-16">
@@ -82,6 +87,7 @@ function Login() {
               </div>
               <button type="submit">Login</button>
             </form>
+            <button onClick={logoutHandler}>Log out</button>
           </div>
         )}
       </div>

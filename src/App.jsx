@@ -12,11 +12,16 @@ import AddPost from "./pages/AddPost.jsx";
 import Detail from "./pages/Detail"
 import Splash from "./Splash.jsx"
 import { useState, useEffect } from "react";
+import Register from "./pages/Register.jsx";
 
 function App() {
   const [showSplashscreen, setShowSplashscreen] = useState(
     () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
   );
+
+  const [isLogin] = useState(
+    () => JSON.parse(localStorage.getItem("isLogin"))
+  )
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,11 +39,9 @@ function App() {
     <>
       <div className="container">
         <Router>
-          {/* <NavBar />
-          <AddButton /> */}
           <Routes>
             <Route element={<MainLayout />}>
-              <Route path="/" element={<Home />} exact></Route>
+              <Route path="/" element={isLogin? <Home /> : <Register />} exact></Route>
               <Route path="/about" element={<About />} exact></Route>
               <Route path="/login" element={<Login />} exact></Route>
             </Route>
