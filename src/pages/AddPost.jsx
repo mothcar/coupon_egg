@@ -76,23 +76,11 @@ export default function AddPost() {
     // setHide
     if(e.target.value == "change") setHide("hidden")
     else setHide("grid grid-cols-2 items-center")
-    console.log("Radio changes : ", e.target.value);
   }
 
   return (
     <div className="common">
       <div className="mb-5">
-        {/* <label className="block">
-          <span className="sr-only">Choose profile photo</span>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} className="block w-full text-sm text-slate-500
-            file:mr-4 file:py-2 file:px-4
-            file:rounded-full file:border-0
-            file:text-sm file:font-semibold
-            file:bg-violet-50 file:text-violet-700
-            hover:file:bg-violet-100
-          "/>
-        </label> */}
-
         <div
           id="image-preview"
           className="max-w-sm h-full p-2 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center cursor-pointer"
