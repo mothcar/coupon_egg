@@ -27,7 +27,7 @@ export default function Item(props) {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <img
-                    className="w-24 h-24 md:w-40 md:h-40 rounded-sm object-cover"
+                    className="w-24 h-24 md:w-40 md:h-40 rounded-md object-cover"
                     src={card.image}
                     alt="Neil image"
                   />
