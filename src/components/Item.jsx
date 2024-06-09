@@ -27,13 +27,13 @@ export default function Item(props) {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <img
-                    className="w-20 h-20 md:w-40 md:h-40 rounded-sm "
+                    className="w-24 h-24 md:w-40 md:h-40 rounded-sm object-cover"
                     src={card.image}
                     alt="Neil image"
                   />
                 </div>
                 <div className="flex-1 min-w-0 ms-4">
-                  <p className="text-sm font-medium text-gray-900 truncate mb-1">
+                  <p className="text-md font-medium text-gray-900 truncate mb-1">
                     {card.type=="구함"?"[ 구함 ]":"[ *드림* ]"}  {card.title}
                   </p>
                   <p className="text-sm text-gray-500 truncate mb-1">
@@ -41,7 +41,7 @@ export default function Item(props) {
                   </p>
                   
                   <div className="flex justify-items-start gap-5">
-                    <p className="text-sm text-black truncate">
+                    <p className="text-md text-black truncate">
                       {card.count} 장
                     </p>
                     {/* <p className="text-sm text-black truncate">
