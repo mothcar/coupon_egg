@@ -70,6 +70,15 @@ export default function AddPost() {
     alert("등록완료");
   };
 
+  const [hide, setHide] = useState("")
+
+  function changedRadio(e) {
+    // setHide
+    if(e.target.value == "change") setHide("hidden")
+    else setHide("grid grid-cols-2 items-center")
+    console.log("Radio changes : ", e.target.value);
+  }
+
   return (
     <div className="common">
       <div className="mb-5">
@@ -121,8 +130,10 @@ export default function AddPost() {
             <input
               id="inline-radio"
               type="radio"
-              value=""
+              value="sold"
               name="inline-radio-group"
+              onChange={changedRadio}
+              defaultChecked
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
@@ -136,8 +147,9 @@ export default function AddPost() {
             <input
               id="inline-2-radio"
               type="radio"
-              value=""
+              value="change"
               name="inline-radio-group"
+              onChange={changedRadio}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
@@ -148,21 +160,27 @@ export default function AddPost() {
             </label>
           </div>
         </div>
-        <div className="grid grid-cols-4 items-center">
-          <input
-            type="number"
-            id="title"
-            className="border text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
-            placeholder="0"
-          />
-          <span className="ml-3">장</span>
-          <input
-            type="number"
-            id="title"
-            className="border text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
-            placeholder="w"
-          />
-          <span className="ml-3">원</span>
+
+        <div className="grid grid-cols-2 items-center">
+          <div className="grid grid-cols-2 items-center">
+            <input
+              type="number"
+              id="title"
+              className="border text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
+              placeholder="0"
+            />
+            <span className="ml-3">장</span>
+          </div>
+
+          <div className={hide}>
+            <input
+              type="number"
+              id="title"
+              className="border text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
+              placeholder="w"
+            />
+            <span className="ml-3">원</span>
+          </div>
         </div>
       </div>
 
