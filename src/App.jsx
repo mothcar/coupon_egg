@@ -11,37 +11,32 @@ import CommonLayout from "./layout/CommonLayout.jsx";
 import AddPost from "./pages/AddPost.jsx";
 import Detail from "./pages/Detail"
 import Splash from "./Splash.jsx"
-import { useState, useEffect } from "react";
 import Register from "./pages/Register.jsx";
+import { useEffect } from "react";
+
 
 function App() {
-  const [showSplashscreen, setShowSplashscreen] = useState(
-    () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
-  );
+  // const [showSplashscreen, setShowSplashscreen] = useState(
+  //   () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
+  // );
 
-  const [isLogin] = useState(
-    () => JSON.parse(localStorage.getItem("isLogin"))
-  )
+  // const [isLogin] = useState(
+  //   () => JSON.parse(localStorage.getItem("isLogin"))
+  // )
 
   useEffect(() => {
-    setTimeout(() => {
-      // Update local state to trigger component rerender
-      setShowSplashscreen(false);
-      // Update localStorage for next time app is mounted
-      // set true
-      localStorage.setItem("showedSplashscreen", JSON.stringify(false)); 
-    }, 1000);
+    
   }, []);
 
-  return showSplashscreen ? (
-    <Splash />
-  ) : (
+  return (
     <>
       <div className="container">
         <Router>
           <Routes>
+            <Route path="/" element={<Splash />}exact></Route>
+            <Route path="/register" element={<Register />}exact></Route>
             <Route element={<MainLayout />}>
-              <Route path="/" element={isLogin? <Home /> : <Register />} exact></Route>
+              <Route path="/home" element={<Home />}exact></Route>
               <Route path="/about" element={<About />} exact></Route>
               <Route path="/login" element={<Login />} exact></Route>
             </Route>

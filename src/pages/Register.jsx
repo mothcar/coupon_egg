@@ -7,7 +7,7 @@ export default function Register() {
 
   function loginHandler() {
     localStorage.setItem("isLogin", JSON.stringify(true)); 
-    navigate("../", { replace: true })
+    navigate("../home", { replace: true })
   }
   function logoutHandler() {
     localStorage.setItem("isLogin", JSON.stringify(false)); 
