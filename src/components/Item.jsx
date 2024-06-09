@@ -17,11 +17,11 @@ export default function Item(props) {
 
   return (
     <>
-      <div onClick={cardClickHandler} className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div onClick={cardClickHandler} className="w-full p-4 sm:p-8">
         <div className="flow-root">
           <div
             role="list"
-            className="divide-y divide-gray-200 dark:divide-gray-700"
+            className="divide-y divide-gray-200"
           >
             <div className="py-1">
               <div className="flex items-center">
@@ -33,25 +33,25 @@ export default function Item(props) {
                   />
                 </div>
                 <div className="flex-1 min-w-0 ms-4">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate">
                     {card.title}
                   </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                  <p className="text-sm text-gray-500 truncate">
                     {card.content}
                   </p>
                   
                   <div className="flex justify-items-start gap-5">
-                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                    <p className="text-sm text-gray-500 truncate">
                       {card.count} 장
                     </p>
-                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                    <p className="text-sm text-gray-500 truncate">
                       {card.price} 원
                     </p>
                   </div>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                {/* <div className="inline-flex items-center text-base font-semibold text-gray-900">
                   <BsList></BsList>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
