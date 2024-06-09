@@ -10,9 +10,26 @@ import MainLayout from "./layout/MainLayout.jsx";
 import CommonLayout from "./layout/CommonLayout.jsx";
 import AddPost from "./pages/AddPost.jsx";
 import Detail from "./pages/Detail"
+import Splash from "./Splash.jsx"
+import { useState, useEffect } from "react";
 
 function App() {
-  return (
+  const [showSplashscreen, setShowSplashscreen] = useState(
+    () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      // Update local state to trigger component rerender
+      setShowSplashscreen(false);
+      // Update localStorage for next time app is mounted
+      localStorage.setItem("showedSplashscreen", JSON.stringify(true));
+    }, 4000);
+  }, []);
+
+  return showSplashscreen ? (
+    <Splash />
+  ) : (
     <>
       <div className="container">
         <Router>
