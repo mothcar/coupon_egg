@@ -25,7 +25,7 @@ function App() {
       // Update localStorage for next time app is mounted
       // set true
       localStorage.setItem("showedSplashscreen", JSON.stringify(false)); 
-    }, 4000);
+    }, 1000);
   }, []);
 
   return showSplashscreen ? (
