@@ -21,10 +21,10 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       // Update local state to trigger component rerender
-      setShowSplashscreen(true);
+      setShowSplashscreen(false);
       // Update localStorage for next time app is mounted
       // set true
-      localStorage.setItem("showedSplashscreen", JSON.stringify(false)); 
+      // localStorage.setItem("showedSplashscreen", JSON.stringify(false)); 
     }, 4000);
   }, []);
 
