@@ -23,7 +23,7 @@ export default function Item(props) {
             role="list"
             className="divide-y divide-gray-200"
           >
-            <div className="py-1">
+            <div className="py-1 flex justify-start items-start">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <img
@@ -33,20 +33,20 @@ export default function Item(props) {
                   />
                 </div>
                 <div className="flex-1 min-w-0 ms-4">
-                  <p className="text-sm font-medium text-gray-900 truncate">
-                    {card.title}
+                  <p className="text-sm font-medium text-gray-900 truncate mb-1">
+                    {card.type=="구함"?"[ 구함 ]":"[ *드림* ]"}  {card.title}
                   </p>
-                  <p className="text-sm text-gray-500 truncate">
-                    {card.content}
+                  <p className="text-sm text-gray-500 truncate mb-1">
+                    {card.place}
                   </p>
                   
                   <div className="flex justify-items-start gap-5">
-                    <p className="text-sm text-gray-500 truncate">
+                    <p className="text-sm text-black truncate">
                       {card.count} 장
                     </p>
-                    <p className="text-sm text-gray-500 truncate">
+                    {/* <p className="text-sm text-black truncate">
                       {card.price} 원
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 {/* <div className="inline-flex items-center text-base font-semibold text-gray-900">
