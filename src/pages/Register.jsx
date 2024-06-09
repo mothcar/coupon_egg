@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -14,13 +13,6 @@ export default function Register() {
     navigate("../", { replace: true })
   }
 
-  useEffect(()=>{
-    console.log('Is First useEffect........')
-    // if(isLogin) {
-    //   let path = `../`;
-    //   navigate(path, { replace: true });
-    // }
-  },[])
   return (
     <>
       <div className="common flex flex-col gap-5">

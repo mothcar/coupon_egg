@@ -1,8 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import NavBar from "./components/NavBar"
-// import AddButton from "./components/AddButton.jsx"
 import Home from "./pages/Home";
 import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
@@ -12,22 +10,8 @@ import AddPost from "./pages/AddPost.jsx";
 import Detail from "./pages/Detail"
 import Splash from "./Splash.jsx"
 import Register from "./pages/Register.jsx";
-import { useEffect } from "react";
-
 
 function App() {
-  // const [showSplashscreen, setShowSplashscreen] = useState(
-  //   () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
-  // );
-
-  // const [isLogin] = useState(
-  //   () => JSON.parse(localStorage.getItem("isLogin"))
-  // )
-
-  useEffect(() => {
-    
-  }, []);
-
   return (
     <>
       <div className="container">
