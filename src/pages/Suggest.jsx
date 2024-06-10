@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 export default function Suggest() {
   const { state } = useLocation();
-  console.log("Suggest : ", state);
+  // console.log("Suggest : ", state);
   const image = state.image;
   return (
     <>

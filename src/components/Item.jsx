@@ -34,7 +34,7 @@ export default function Item(props) {
                 </div>
                 <div className="flex-1 min-w-0 ms-4">
                   <p className="text-md font-medium text-gray-900 truncate mb-1">
-                    {card.type=="구함"?"[ 구함 ]":"[ *드림* ]"}  {card.title}
+                    {card.type=="TAKE"?"[ 구함 ]":"[ *드림* ]"}  {card.title}
                   </p>
                   <p className="text-sm text-gray-500 truncate mb-1">
                     {card.place}
