@@ -10,6 +10,7 @@ import AddPost from "./pages/AddPost.jsx";
 import Detail from "./pages/Detail"
 import Splash from "./Splash.jsx"
 import Register from "./pages/Register.jsx";
+import Suggest from "./pages/Suggest.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route element={<CommonLayout />}>
               <Route path="/addPost" element={<AddPost />} exact></Route>
               <Route path="/goDetail" element={<Detail />} exact></Route>
+              <Route path="/suggest" element={<Suggest />} exact></Route>
             </Route>
           </Routes>
         </Router>

@@ -4,19 +4,25 @@ import { BsPerson } from "react-icons/bs";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import useWindowDimensions from "../data/useWindowDimensions";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTitleStore } from "../store/titleStore.js"
 
 export default function Detail() {
   // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
   useEffect(()=>{
     window.scrollTo(0, 0)
   },[])
+  const navigate = useNavigate();
+  const { setTitle } = useTitleStore()
   const { state } = useLocation();
   const { width, height } = useWindowDimensions();
   const widthNew = width - 50 + "px";
-  const heightNew = height / 2 + "px";
+  const heightNew = height / 3 + "px";
   // console.log("width : ", width, " height : ", heightNew);
   const tradeHandler = ()=>{
-    console.log('Trade Handler..........')
+    navigate("/suggest", {state: state})
+    setTitle("제안하기")
+    // console.log('Trade Handler..........')
   }
 
   return (
@@ -52,7 +58,7 @@ export default function Detail() {
         <Map
           center={{ lat: 33.5563, lng: 126.79581 }}
           style={{ width: widthNew, height: heightNew }}
-          className="mb-14"
+          className="mb-14 rounded-lg"
         >
           <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
             <div style={{ color: "#000" }}>{state.place}</div>
@@ -64,7 +70,7 @@ export default function Detail() {
             onClick={tradeHandler}
             className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-5 rounded"
           >
-            교환제안
+            교환제안,제안하기
           </button>
         </div>
       </div>
