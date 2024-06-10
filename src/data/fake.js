@@ -1,11 +1,15 @@
 export const lists = [
   {
     id: "001",
-    
+
     userId: "mothcar@naver.com",
+    userImage: "",
+    userName: "흥민",
     addressDepth1: "서울",
     addressDepth2: "동작구",
     addressDepth3: "신대방2동",
+    shopId: "abcd001",
+    shopName: "영짜장",
 
     type: "구함",
     title: "미스터피자 쿠폰 구해요",
