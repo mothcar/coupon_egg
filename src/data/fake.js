@@ -1,6 +1,12 @@
 export const lists = [
   {
     id: "001",
+    
+    userId: "mothcar@naver.com",
+    addressDepth1: "서울",
+    addressDepth2: "동작구",
+    addressDepth3: "신대방2동",
+
     type: "구함",
     title: "미스터피자 쿠폰 구해요",
     image : "https://res.cloudinary.com/mothcar/image/upload/v1717440003/coupon/mrpizza.png",
