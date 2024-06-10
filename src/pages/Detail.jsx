@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom";
 import "./common.css";
 import { BsPerson } from "react-icons/bs";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 export default function Detail() {
+  // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
   const { state } = useLocation();
 
   return (
@@ -30,6 +32,14 @@ export default function Detail() {
           <div className="text-base font-bold">거래희망장소</div>
           <div>{state.place}</div>
         </div>
+        <Map
+      center={{ lat: 33.5563, lng: 126.79581 }}
+      style={{ width: "100vw", height: "100vh" }}
+    >
+      <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+        <div style={{ color: "#000" }}>Hello World!</div>
+      </MapMarker>
+    </Map>
       </div>
     </>
   );
