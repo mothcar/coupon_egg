@@ -2,15 +2,19 @@ import { useLocation } from "react-router-dom";
 import "./common.css";
 import { BsPerson } from "react-icons/bs";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import useWindowDimensions from "../data/useWindowDimensions";
 
 export default function Detail() {
   // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
   const { state } = useLocation();
+  const { width, height } = useWindowDimensions();
+  const widthNew = width-50 + "px";
+  const heightNew = height / 2 + "px";
+  // console.log("width : ", width, " height : ", heightNew);
 
   return (
     <>
       <div className="common">
-        
         <div className="flex justify-center items-center">
           <img
             className="h-auto max-w-full"
@@ -19,7 +23,13 @@ export default function Detail() {
           />
         </div>
         <div className="mt-2 flex items-center gap-3">
-          <div>{state.userImage?<img src={state.userImage} alt="" />:<BsPerson fontSize={30}/>}</div>
+          <div>
+            {state.userImage ? (
+              <img src={state.userImage} alt="" />
+            ) : (
+              <BsPerson fontSize={30} />
+            )}
+          </div>
           <div>
             <div className="text-lg font-bold">{state.userName}</div>
             <dir className="text-sm font-thin">{state.addressDepth3}</dir>
@@ -33,13 +43,13 @@ export default function Detail() {
           <div>{state.place}</div>
         </div>
         <Map
-      center={{ lat: 33.5563, lng: 126.79581 }}
-      style={{ width: "100vw", height: "100vh" }}
-    >
-      <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-        <div style={{ color: "#000" }}>Hello World!</div>
-      </MapMarker>
-    </Map>
+          center={{ lat: 33.5563, lng: 126.79581 }}
+          style={{ width: widthNew, height: heightNew }}
+        >
+          <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+            <div style={{ color: "#000" }}>Hello World!</div>
+          </MapMarker>
+        </Map>
       </div>
     </>
   );
