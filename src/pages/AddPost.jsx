@@ -6,6 +6,7 @@ export default function AddPost() {
   const [file] = useState();
 
   useEffect(() => {
+    window.scrollTo(0,0)
     const uploadInput = document.getElementById("upload");
     const filenameLabel = document.getElementById("filename");
     const imagePreview = document.getElementById("image-preview");

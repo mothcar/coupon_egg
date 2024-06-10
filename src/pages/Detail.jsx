@@ -3,9 +3,13 @@ import "./common.css";
 import { BsPerson } from "react-icons/bs";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import useWindowDimensions from "../data/useWindowDimensions";
+import { useEffect } from "react";
 
 export default function Detail() {
   // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   const { state } = useLocation();
   const { width, height } = useWindowDimensions();
   const widthNew = width - 50 + "px";
