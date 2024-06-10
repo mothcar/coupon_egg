@@ -8,9 +8,12 @@ export default function Detail() {
   // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
   const { state } = useLocation();
   const { width, height } = useWindowDimensions();
-  const widthNew = width-50 + "px";
+  const widthNew = width - 50 + "px";
   const heightNew = height / 2 + "px";
   // console.log("width : ", width, " height : ", heightNew);
+  const tradeHandler = ()=>{
+    console.log('Trade Handler..........')
+  }
 
   return (
     <>
@@ -45,11 +48,21 @@ export default function Detail() {
         <Map
           center={{ lat: 33.5563, lng: 126.79581 }}
           style={{ width: widthNew, height: heightNew }}
+          className="mb-14"
         >
           <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-            <div style={{ color: "#000" }}>Hello World!</div>
+            <div style={{ color: "#000" }}>{state.place}</div>
           </MapMarker>
         </Map>
+        <div className="fixed inset-x-0 bottom-0 text-center z-10">
+          <button
+            type="button"
+            onClick={tradeHandler}
+            className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-5 rounded"
+          >
+            교환제안
+          </button>
+        </div>
       </div>
     </>
   );
