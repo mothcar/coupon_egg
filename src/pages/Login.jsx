@@ -15,6 +15,7 @@ function Login() {
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     userRef.current.focus();
   }, []);
 
