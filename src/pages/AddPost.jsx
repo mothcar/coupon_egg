@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import axios from "../api/axios";
 import { BsCameraFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export default function AddPost() {
-  const [file] = useState();
+  const navigate = useNavigate();
+
+  const [file, setFile] = useState();
+  const [hide, setHide] = useState(false);
+  const [tradeType, setTradeType] = useState("TAKE");
+  const [title, setTitle] = useState("");
+  const [shopName, setShopName] = useState("");
+  const [content, setContent] = useState("");
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
     const uploadInput = document.getElementById("upload");
     const filenameLabel = document.getElementById("filename");
     const imagePreview = document.getElementById("image-preview");
@@ -15,6 +23,7 @@ export default function AddPost() {
 
     uploadInput.addEventListener("change", (event) => {
       const file = event.target.files[0];
+      setFile(file);
 
       if (file) {
         filenameLabel.textContent = file.name;
@@ -61,24 +70,50 @@ export default function AddPost() {
     });
   }, []);
 
-  const upload = () => {
+  const upload = async () => {
+    const url = import.meta.env.VITE_LOCAL;
+    // console.log('File : ', file)
     const formData = new FormData();
     formData.append("file", file);
-    axios
-      .post("http://localhost:3000/upload", formData)
-      .then(() => {})
-      .catch((err) => console.log(err));
-    alert("등록완료");
+    formData.append("title", title);
+    formData.append("type", tradeType); // GIVE, TAKE
+    formData.append("userId", "test001asdf");
+    formData.append("userName", "테스트");
+    formData.append("addressDepth1", "서울");
+    formData.append("addressDepth2", "동작구");
+    formData.append("addressDepth3", "신대방동");
+    formData.append("shopName", shopName);
+    formData.append("shopLocation", {});
+    formData.append("content", content);
+    formData.append("price", 500);
+    const picture = await axios.post(url + "/saveCoupon", formData);
+    if (picture) {
+      console.log("Response : ", picture.data);
+      navigate(-1)
+    }
+    // .then((res) => {console.log("Response : ", res.data)})
+    // .catch((err) => console.log(err));
+    // alert("등록완료");
   };
 
-  const [hide, setHide] = useState(false)
-
   function changedRadio(e) {
-    // setHide
-    // if(e.target.value == "change") setHide("hidden")
-    // else setHide("grid grid-cols-2 items-center")
-    if(e.target.value == "change") setHide(true)
-    else setHide(false)
+    if (e.target.value == "TAKE") setHide(true);
+    else {
+      setHide(false);
+      setTradeType(e.target.value);
+    }
+  }
+
+  function titleChange(e) {
+    setTitle(e.target.value);
+  }
+
+  function shopNameChange(e) {
+    setShopName(e.target.value);
+  }
+
+  function contentChange(e) {
+    setContent(e.target.value);
   }
 
   return (
@@ -109,6 +144,8 @@ export default function AddPost() {
         <input
           type="text"
           id="title"
+          value={title}
+          onChange={titleChange}
           className="border w-full text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
           placeholder="제목을 입력해주세요"
         />
@@ -163,7 +200,7 @@ export default function AddPost() {
             <span className="ml-3">장</span>
           </div>
 
-          <div className={hide? "hidden":"grid grid-cols-2 items-center"}>
+          <div className={hide ? "hidden" : "grid grid-cols-2 items-center"}>
             <input
               type="number"
               id="title"
@@ -176,11 +213,25 @@ export default function AddPost() {
       </div>
 
       <div className="mb-10">
+        <label className="block text-base mt-4 mb-2">상점명</label>
+        <input
+          type="text"
+          id="title"
+          onChange={shopNameChange}
+          value={shopName}
+          className="border w-full text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
+          placeholder="상점이름을 입력해주세요"
+        />
+      </div>
+
+      <div className="mb-10">
         <label className="block text-base mt-4 mb-2">설명</label>
         <textarea
           type="text"
           rows="4"
           id="desc"
+          onChange={contentChange}
+          value={content}
           className="border w-full text-base px-2 py-1 focus:outline-none focus:right-1 focus:border-gray-600 rounded-md"
           placeholder="쿠폰 내용을 작성해주세요."
         />
