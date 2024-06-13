@@ -12,13 +12,14 @@ export default function Home() {
   useEffect(()=>{
     async function getData() {
       const couponList = await axios.get(url+"/coupons")
-      console.log('Coupon List : ', couponList.data.item)
+      // console.log('Coupon List : ', couponList.data.item)
       setCoupons(couponList.data.item)
     }
     getData()
   },[])
   return (
     <>
+      <div className="mt-10 text-lg font-bold">Get List :  {coupons.length}</div>
       <div className="pt-2 pb-16 divide-y divide-solid divide-gray-200">
         {coupons.map((list) => (
           // <Card className="" key={list.id} id={lists.id} title={list.title} image={list.image} content={list.content} />
