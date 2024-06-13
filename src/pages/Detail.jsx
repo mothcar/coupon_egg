@@ -31,7 +31,7 @@ export default function Detail() {
         <div className="flex justify-center items-center">
           <img
             className="h-auto max-w-full"
-            src={state.image}
+            src={state.coupon_image}
             alt="image description"
           />
         </div>
