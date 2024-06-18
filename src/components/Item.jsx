@@ -1,11 +1,15 @@
-import { BsList } from "react-icons/bs";
+// import { BsList } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useTitleStore } from "../store/titleStore.js"
+import { useState } from "react";
 
 export default function Item(props) {
   // const backGround = "https://liptong.com/web/product/small/201809/00abbc074c127de3e6a807c0404cc999.jpg"
   const data = props    // Object 
   const card = data.card // Object in Object 
+  const [imgSrc, setImgSrc] = useState(card.coupon_image);
+  // setImgSrc(card.coupon_image)
+  const defaultImage = "https://res.cloudinary.com/mothcar/image/upload/v1718714706/coupon/pochikun.jpg"
 
   const navigate = useNavigate()
   const { setTitle } = useTitleStore()
@@ -13,6 +17,12 @@ export default function Item(props) {
   function cardClickHandler() {
     navigate("/goDetail", {state: card})
     setTitle("디테일")
+  }
+
+  function handleFallback() {
+    console.log("Failed.............")
+    card.coupon_image= defaultImage
+    setImgSrc(defaultImage)
   }
 
   return (
@@ -28,8 +38,9 @@ export default function Item(props) {
                 <div className="flex-shrink-0">
                   <img
                     className="w-24 h-24 md:w-40 md:h-40 rounded-md object-cover"
-                    src={card.coupon_image}
+                    src={imgSrc}
                     alt="Neil image"
+                    onError={handleFallback} 
                   />
                 </div>
                 <div className="flex-1 min-w-0 ms-4">
