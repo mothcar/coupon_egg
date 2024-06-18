@@ -8,6 +8,7 @@ export default function AddPost() {
 
   const [file, setFile] = useState();
   const [hide, setHide] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [tradeType, setTradeType] = useState("TAKE");
   const [title, setTitle] = useState("");
   const [shopName, setShopName] = useState("");
@@ -70,30 +71,39 @@ export default function AddPost() {
     });
   }, []);
 
-  const upload = async () => {
-    const url = import.meta.env.VITE_LOCAL;
-    // console.log('File : ', file)
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("title", title);
-    formData.append("type", tradeType); // GIVE, TAKE
-    formData.append("userId", "test001asdf");
-    formData.append("userName", "테스트");
-    formData.append("addressDepth1", "서울");
-    formData.append("addressDepth2", "동작구");
-    formData.append("addressDepth3", "신대방동");
-    formData.append("shopName", shopName);
-    formData.append("shopLocation", {});
-    formData.append("content", content);
-    formData.append("price", 500);
-    const picture = await axios.post(url + "/saveCoupon", formData);
-    if (picture) {
-      console.log("Response : ", picture.data);
-      navigate(-1)
+  const upload = async (e) => {
+    setIsDisabled(true);
+    e.preventDefault();
+    try {
+      const url = import.meta.env.VITE_LOCAL;
+      // console.log('File : ', file)
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("title", title);
+      formData.append("type", tradeType); // GIVE, TAKE
+      formData.append("userId", "test001asdf");
+      formData.append("userName", "테스트");
+      formData.append("addressDepth1", "서울");
+      formData.append("addressDepth2", "동작구");
+      formData.append("addressDepth3", "신대방동");
+      formData.append("shopName", shopName);
+      formData.append("shopLocation", {});
+      formData.append("content", content);
+      formData.append("price", 500);
+      const picture = await axios.post(url + "/saveCoupon", formData);
+      if (picture) {
+        console.log("Response : ", picture.data);
+        setIsDisabled(false);
+        navigate(-1)
+      }
+      // .then((res) => {console.log("Response : ", res.data)})
+      // .catch((err) => console.log(err));
+      // alert("등록완료");
+    } catch(err) {
+      setIsDisabled(false); // <--- here
+      console.log(err);
     }
-    // .then((res) => {console.log("Response : ", res.data)})
-    // .catch((err) => console.log(err));
-    // alert("등록완료");
+    
   };
 
   function changedRadio(e) {
@@ -253,6 +263,7 @@ export default function AddPost() {
         <button
           type="button"
           onClick={upload}
+          disabled={isDisabled}
           className=" w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-5 rounded"
         >
           등록
