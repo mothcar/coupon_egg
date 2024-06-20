@@ -13,6 +13,7 @@ export default function AddPost() {
   const [title, setTitle] = useState("");
   const [shopName, setShopName] = useState("");
   const [content, setContent] = useState("");
+  const [cloudUrl, setCloudUrl] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,9 +25,29 @@ export default function AddPost() {
 
     uploadInput.addEventListener("change", (event) => {
       const file = event.target.files[0];
-      setFile(file);
+
+      async function fetchAndSetUser(file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "khtvl2yr");
+        // w_100,h_100,c_fill,g_face,r_max/v1696000091/wcpdivzy1hqubvhvefdy.png
+        await axios
+          .post(
+            "https://api.cloudinary.com/v1_1/mothcar/image/upload",
+            formData
+          )
+          .then(async (imageData) => {
+            let url = imageData.data.url;
+            // console.log("이미지 저장됐나? :", url);
+            // this.$root.progressBar.show({ activate: false });
+            // return url;
+            setCloudUrl(url);
+          });
+      }
 
       if (file) {
+        fetchAndSetUser(file);
+        setFile(file);
         filenameLabel.textContent = file.name;
 
         const reader = new FileReader();
@@ -74,36 +95,53 @@ export default function AddPost() {
   const upload = async (e) => {
     setIsDisabled(true);
     e.preventDefault();
+    console.log("Image url : ", cloudUrl);
+
     try {
       const url = import.meta.env.VITE_LOCAL;
       // console.log('File : ', file)
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("title", title);
-      formData.append("type", tradeType); // GIVE, TAKE
-      formData.append("userId", "test001asdf");
-      formData.append("userName", "테스트");
-      formData.append("addressDepth1", "서울");
-      formData.append("addressDepth2", "동작구");
-      formData.append("addressDepth3", "신대방동");
-      formData.append("shopName", shopName);
-      formData.append("shopLocation", {});
-      formData.append("content", content);
-      formData.append("price", 500);
-      const picture = await axios.post(url + "/saveCoupon", formData);
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("title", title);
+      // formData.append("type", tradeType); // GIVE, TAKE
+      // formData.append("userId", "test001asdf");
+      // formData.append("userName", "테스트");
+      // formData.append("addressDepth1", "서울");
+      // formData.append("addressDepth2", "동작구");
+      // formData.append("addressDepth3", "신대방동");
+      // formData.append("shopName", shopName);
+      // formData.append("shopLocation", {});
+      // formData.append("content", content);
+      // formData.append("price", 500);
+
+      const params = {
+        url: cloudUrl,
+        title: title,
+        type: tradeType,
+        userId: "test001asd",
+        userName: "테스트",
+        addressDepth1: "서울",
+        addressDepth2: "동작구",
+        addressDepth3: "신대방",
+        shopName: shopName,
+        shopLocation: {},
+        content: content,
+        price: 500,
+      };
+
+      const picture = await axios.post(url + "/saveCoupon", params);
       if (picture) {
         console.log("Response : ", picture.data);
         setIsDisabled(false);
-        navigate(-1)
+        navigate(-1);
       }
       // .then((res) => {console.log("Response : ", res.data)})
       // .catch((err) => console.log(err));
       // alert("등록완료");
-    } catch(err) {
+    } catch (err) {
       setIsDisabled(false); // <--- here
       console.log(err);
     }
-    
   };
 
   function changedRadio(e) {
