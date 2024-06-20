@@ -27,7 +27,7 @@ export default function Splash() {
 
   return (
     <div className="flex flex-col m-auto h-screen justify-center items-center ">
-      <h1 className="text-3xl font-medium">레서쿠폰 5:58</h1>
+      <h1 className="text-3xl font-medium">레서쿠폰</h1>
       <h6 className="mt-5">세상의 모든 쿠폰 거래</h6>
       <img src={pandaLogo} alt="" className="mt-5"/>
       <h6 className="mt-5 text-white">스마트폰 url address bar 때문에 글을 위로 올려야하기때문에 </h6>      
