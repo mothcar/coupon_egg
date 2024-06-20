@@ -29,6 +29,7 @@ export default function AddPost() {
       async function fetchAndSetUser(file) {
         const formData = new FormData();
         formData.append("file", file);
+        formData.append("folder", "coupon");
         formData.append("upload_preset", "khtvl2yr");
         // w_100,h_100,c_fill,g_face,r_max/v1696000091/wcpdivzy1hqubvhvefdy.png
         await axios
