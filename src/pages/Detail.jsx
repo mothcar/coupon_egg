@@ -11,6 +11,7 @@ export default function Detail() {
   // console.log("Env : ", import.meta.env.VITE_KAKAO_KEY);
   useEffect(()=>{
     window.scrollTo(0, 0)
+    setTitle("Detail")
   },[])
   const navigate = useNavigate();
   const { setTitle } = useTitleStore()
@@ -21,7 +22,7 @@ export default function Detail() {
   // console.log("width : ", width, " height : ", heightNew);
   const tradeHandler = ()=>{
     navigate("/suggest", {state: state})
-    setTitle("제안하기")
+    // setTitle("제안하기")
     // console.log('Trade Handler..........')
   }
 

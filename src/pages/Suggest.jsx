@@ -1,8 +1,16 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTitleStore } from "../store/titleStore.js"
+
+
 
 export default function Suggest() {
   const { state } = useLocation();
+  const { setTitle } = useTitleStore()
   // console.log("Suggest : ", state);
+  useEffect(()=>{
+    setTitle("Suggest...")
+  },[])
   const image = state.coupon_image;
   return (
     <>
