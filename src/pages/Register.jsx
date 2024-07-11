@@ -23,6 +23,7 @@ export default function Register() {
       <div className="common flex flex-col gap-5">
         <div>Register</div>
         <button
+          id="login"
           onClick={loginHandler}
           className="bg-blue-500 px-5 py-3 rounded-sm"
         >
